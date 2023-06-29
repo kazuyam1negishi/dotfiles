@@ -5,10 +5,10 @@
 # The following are all things that run on startup to get the desktop running.
 
 # Login screen (autologin enabled in terminal)
-exec betterlockscreen -l dim
+exec betterlockscreen -l
 
 # Startup Sound
-exec_always mplayer /home/kazuya/Music/Startup\ Sounds/mac_T2_start.mp3
+exec_always mplayer /home/kazuya/Music/Startup\ Sounds/mac_quadra_start.wav
 
 # Start three polybars
 exec polybar leftBar
@@ -222,8 +222,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
-
 set_from_resource $bg-color i3wm.color1 #DD0000
 
 # Window Colors
@@ -240,5 +238,3 @@ gaps inner 20
 
 # screenshot bind
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date)"
-
-
