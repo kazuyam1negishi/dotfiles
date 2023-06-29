@@ -1,35 +1,66 @@
 # My Arch Linux dotfiles
 Welcome! This is a backup of my dotfiles, which you can also use to get a little jumpstart in ricing i3!
-These may not be the cleanest, but I'm still working on fixing some comments to make it easier to read for others.
 
-## Program configs
-- cava (visualizer)
-- i3 (window manager)
-- neofetch (info tool)
-- picom (compositor)
-- polybar (status & system)
-- rofi (run and file menus)
+# How to use
+This is meant to be run after the system and apps are installed. You can run setmeup.sh (make executable!) to make the symbolic links instantly.
 
+# Available Config Files
+- .bashrc
+- .bash_profile
+- .xinitrc
+- .Xresources
+- cava
+- rofi
+- i3wm
+- kitty
+- neofetch
+- picom
+- polybar
+
+# Installed Programs
+
+## Basics
+- i3 window manager
+- picom compositor
+- polybar system bars
+- rofi program menus
+- xorg, xorg-xinit, xorg-server
+- urxvt terminal emulator
+
+## Audio/Video/Utilities
+- sof-firmware (audio driver)
+- pulseaudio (audio server)
+- pulsemixer (utility)
+- alsa-utils (volume control)
+- brightnessctl (brightness control)
+- pcmanfm (file manager)
+- udiskie (drive mounting)
+
+## Web
+- google-chrome-stable (browser, aur)
+- discord (chat, aur)
+
+## Eye Candy
+- cava (audio visualizer)
+- pipes.sh (screensaver)
+- neofetch (system info tool)
+- yewtube (YT client, pipx)
+
+## System Files
 - .Xresources (wal/feh colors)
 - .xinitrc (start i3)
 - .bashrc and .bash_profile (PATH and startx)
 
-## Required extras
-If I misssed anything, do let me know!
-
-### Fonts
+## Fonts
 - ttf-font-awesome (aur)
+- ttf-hanazono (japanese font)
 - Nintendo DS BIOS (web)
 
-### Programs
-- betterlockscreen (Polybar lock button)
-- wal (& feh, wallpaper and color setup)
-
-## How to use
-For ease of backup and editing, all of these files use symbolic links.
-
-**Example**
-> TERM> ln -s ~/.dotfiles/i3conf ~/.config/i3/config
-
-## To-Do
-- Set up a script that automatically creates dirs and sym. links
+## Extras
+- archlinux-keyring (password storage)
+- gnome-keyring (password storage)
+- gimp (photo editing)
+- ntfs-3g (NTFS disk support)
+- exfat-utils (exFat disk support)
+- steam (gaming, aur)
+- minecraft-launcher (aur)
