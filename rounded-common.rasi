@@ -16,7 +16,7 @@
 }
 
 window {
-    location:       west;
+    location:       south;
     width:          300;
     //border-radius:  8px;
     

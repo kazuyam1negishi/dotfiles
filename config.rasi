@@ -1,7 +1,7 @@
 configuration {
 	modes: "run,filebrowser";
-	xoffset: 63;
-	yoffset: 200;
+	xoffset: 0;
+	yoffset: 0;
 }
 
 @theme "rounded-red-dark"

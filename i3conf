@@ -18,6 +18,9 @@ exec polybar rightBar
 # Allows traditional "plug-and-play", like I'm used to on Windows.
 exec udiskie -a
 
+# Enable notifications
+exec dunst
+
 # Runs wal to get a color scheme on startup.
 exec wal -i /home/kazuya/Pictures/Wallpapers/mm_1.jpg -a 50
 
@@ -184,7 +187,7 @@ assign [class="vlc"] $ws5
 assign [class="discord"] $ws6
 assign [class="libreoffice-startcenter"] $ws7
 assign [class="Desmume"] $ws8
-assign [class="Steam"] $ws8
+assign [class="steam"] $ws8
 assign [class="Minecraft Launcher"] $ws8
 assign [class="obs"] $ws9
 
