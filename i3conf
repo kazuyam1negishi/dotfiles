@@ -8,7 +8,7 @@
 exec betterlockscreen -l
 
 # Startup Sound
-exec_always mplayer /home/kazuya/Music/Startup\ Sounds/mac_quadra_start.wav
+exec_always mplayer /home/kazuya/Music/Startup\ Sounds/mac_T2_start.wav
 
 # Start three polybars
 exec polybar leftBar
@@ -18,11 +18,8 @@ exec polybar rightBar
 # Allows traditional "plug-and-play", like I'm used to on Windows.
 exec udiskie -a
 
-# Enable notifications
-exec dunst
-
 # Runs wal to get a color scheme on startup.
-exec wal -i /home/kazuya/Pictures/Wallpapers/mm_1.jpg -a 50
+exec wal -i /home/kazuya/Pictures/Wallpapers/6077462.jpg -a 50
 
 # Wallpaper change command (Swap for whatever key combo you want!)
 bindsym XF86Calculator exec "wal -i /home/kazuya/Pictures/Wallpapers/ -a 50"
