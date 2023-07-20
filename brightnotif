@@ -1,0 +1,17 @@
+# !/bin/bash
+
+send_msg(){
+	bright=$(brightnessctl | grep -P -o '[0-9]+(?=%)')
+	dunstify -u low -r 9999 "Brightness : ${bright}%" -t 5000 -i /home/kazuya/Pictures/FontAwesomeIcons/light.png
+}
+
+case $1 in
+up)
+	brightnessctl set +1%
+	send_msg
+	;;
+down)
+	brightnessctl set 1%-
+	send_msg
+	;;
+esac

@@ -3,12 +3,8 @@ export PATH="$PATH:/home/kazuya/.local/bin"
 export PATH="$PATH:/home/kazuya/Apps"
 export PATH="$PATH:/home/kazuya/.cargo/bin"
 
-
-echo "In case of fire:"
-echo "git add ."
-echo "git commit"
-echo "git push"
-echo "git the fuck out"
+echo "Remember..."
+~/.dotfiles/quotes.sh
 echo
 
 PS1="Kazuya's Comp \w> "

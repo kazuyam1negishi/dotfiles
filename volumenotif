@@ -1,0 +1,21 @@
+# !/bin/bash
+
+send_msg(){
+	vol=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master))
+	dunstify -u low -r 9998 "Volume : $vol" -t 5000 -i /home/kazuya/Pictures/FontAwesomeIcons/volume.png
+}
+
+case $1 in
+up)
+	amixer set Master 5%+
+	send_msg
+	;;
+down)
+	amixer set Master 5%-
+	send_msg
+	;;
+mute)
+	amixer set Master toggle
+	send_msg
+	;;
+esac

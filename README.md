@@ -16,6 +16,7 @@ This is meant to be run after the system and apps are installed. You can run set
 - neofetch
 - picom
 - polybar
+- dunst (plus scripts!)
 
 # Installed Programs
 
@@ -26,6 +27,7 @@ This is meant to be run after the system and apps are installed. You can run set
 - rofi program menus
 - xorg, xorg-xinit, xorg-server
 - urxvt terminal emulator
+- dunst notification daemon
 
 ## Audio/Video/Utilities
 - sof-firmware (audio driver)

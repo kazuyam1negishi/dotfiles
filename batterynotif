@@ -1,0 +1,53 @@
+# !/bin/bash
+
+export DISPLAY=:0
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus" 
+export XDG_RUNTIME_DIR="/run/user/1000"
+
+lvl=$(acpi -b | grep -P -o '[0-9]+(?=%)')
+discharge=$(acpi -b | grep -c "Discharging")
+alerted=0
+veryempty=/tmp/veryemptybat
+empty=/tmp/emptybattery
+full=/tmp/fullbattery
+
+# Removes temp file when battery charging.
+if [ $discharge == 0 ] && [ -f $empty ]
+then
+	rm $empty
+fi
+
+if [ $discharge == 0 ] && [ -f $veryempty ]
+then
+	rm $veryempty
+fi
+
+if [ $discharge == 1 ] && [ -f $full ]
+then
+	rm $full
+fi
+
+# Alerts when fully charged...
+if [ $lvl == 100 ] && [ $discharge == 0 ]
+then
+	dunstify -u low -r 9997 "Battery Full!" "Battery fully charged" -t 5000 -i /home/kazuya/Pictures/FontAwesomeIcons/battery.png
+	touch $full
+fi
+
+# Very low...
+if [ $lvl -le 5 ] && [ $discharge == 1 ] && [ ! -f $veryempty ]
+then
+	dunstify -u critical -r 9997 "Battery Very Low" "Charge your device NOW." -i /home/kazuya/Pictures/FontAwesomeIcons/battery-empty.png
+	mplayer /home/kazuya/Music/System\ Sounds/Battery\ Critical.wav
+	# Added to prevent "Battery Low" alert after "Very Low" alert.
+	alerted=1
+	touch $veryempty
+fi
+
+# Or just low.
+if [ $lvl -le 15 ] && [ $discharge == 1 ] && [ $alerted == 0 ] && [ ! -f $empty ]
+then
+	dunstify -u normal -r 9997 "Battery Low" "Charge your device soon." -t 5000 -i /home/kazuya/Pictures/FontAwesomeIcons/battery-empty.png
+	mplayer /home/kazuya/Music/System\ Sounds/Battery\ Low.wav
+	touch $empty
+fi
