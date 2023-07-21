@@ -12,3 +12,5 @@ ln -s ~/.dotfiles/kitty.conf $HOME/.config/kitty/kitty.conf
 ln -s ~/.dotfiles/neofetch.conf $HOME/.config/neofetch/config.conf
 ln -s ~/.dotfiles/picom.conf $HOME/.config/picom/picom.conf
 ln -s ~/.dotfiles/polybar.ini $HOME/.config/polybar/config.ini
+ln -s ~/.dotfiles/dunstrc $HOME/.config/dunst/dunstrc
+ln -s ~/.dotfiles/betterlockscreenrc $HOME/.config/betterlockscreenrc
