@@ -5,15 +5,16 @@
 # The following are all things that run on startup to get the desktop running.
 
 # Login screen (autologin enabled in terminal)
-exec betterlockscreen -l
+# exec betterlockscreen -l
 
 # Startup Sound
-exec_always mplayer /home/kazuya/Music/System\ Sounds/mac_T2_start.wav
+exec_always mplayer $HOME/Music/System\ Sounds/xp_start.mp3
 
 # Start three polybars
 exec polybar leftBar
-exec polybar powerBar
 exec polybar rightBar
+exec polybar powerBar
+#exec polybar rightBar
 
 # Allows traditional "plug-and-play", like I'm used to on Windows.
 exec udiskie -a
@@ -22,16 +23,16 @@ exec udiskie -a
 exec dunst
 
 # Runs wal to get a color scheme on startup.
-exec wal -i /home/kazuya/Pictures/Wallpapers/girl_smiling_with_coffee.jpg -a 50
+exec wal -i $HOME/Pictures/Wallpapers/arch_5.png -a 50
 
 # Wallpaper change command (Swap for whatever key combo you want!)
-bindsym XF86Calculator exec "wal -i /home/kazuya/Pictures/Wallpapers/ -a 50"
+bindsym XF86Calculator exec wal -i $HOME/Pictures/Wallpapers/ -a 50
 
 # i3 mod key
 set $mod Mod4
 
 # Font for i3 window titles, just in case.
-# font pango:NintendoDSBIOS 24
+font pango:NintendoDSBIOS 24
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -43,9 +44,9 @@ exec --no-startup-id nm-applet
 
 # Audio controls, using amixer.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.dotfiles/volumenotif up
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/.dotfiles/volumenotif down
-bindsym XF86AudioMute exec --no-startup-id ~/.dotfiles/volumenotif mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.dotfiles/volumenotif up
+bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.dotfiles/volumenotif down
+bindsym XF86AudioMute exec --no-startup-id $HOME/.dotfiles/volumenotif mute
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -55,7 +56,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -239,8 +240,13 @@ client.urgent		$bg-color		$bg-color		$urgent-text-color	$urgent-bg-color
 
 # border settings, top accounts for polybars
 default_border none
+
+# if using three polybars with window gaps, use these.
 gaps top 60
 gaps inner 20
+
+# if using full polybar with no gaps, use these.
+# gaps top 48
 
 # screenshot bind
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date)"

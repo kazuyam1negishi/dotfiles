@@ -36,7 +36,7 @@ This is meant to be run after the system and apps are installed. You can run set
 - alsa-utils (volume control)
 - brightnessctl (brightness control)
 - pcmanfm (file manager)
-- udiskie (drive mounting)
+- gvfs (drive mounting and trash)
 
 ## Web
 - google-chrome-stable (browser, aur)

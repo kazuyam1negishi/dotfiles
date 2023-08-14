@@ -1,6 +1,7 @@
 URxvt.font: xft:NintendoDSBIOS:size=12
-URxvt*depth: 32
-URxvt*background: rgba:0000/0000/0000/7000
+; URxvt*depth: 32
+; URxvt*background: rgba:0000/0000/0000/7000
+URxvt*background: black
 URxvt*foreground: red
 URxvt.internalBorder: 12
 xterm*background: black
