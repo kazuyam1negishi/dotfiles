@@ -7,11 +7,11 @@ send_msg(){
 
 case $1 in
 up)
-	brightnessctl set +1%
+	brightnessctl set +5%
 	send_msg
 	;;
 down)
-	brightnessctl set 1%-
+	brightnessctl set 5%-
 	send_msg
 	;;
 esac

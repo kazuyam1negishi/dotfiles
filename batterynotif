@@ -15,11 +15,13 @@ full=/tmp/fullbattery
 if [ $discharge == 0 ] && [ -f $empty ]
 then
 	rm $empty
+	alerted=0
 fi
 
 if [ $discharge == 0 ] && [ -f $veryempty ]
 then
 	rm $veryempty
+	alerted=0
 fi
 
 if [ $discharge == 1 ] && [ -f $full ]
@@ -51,4 +53,11 @@ then
 	dunstify -u normal -r 9997 "Battery Low" "Charge your device soon." -t 5000 -i /home/kazuya/Pictures/FontAwesomeIcons/battery-empty.png
 	mplayer /home/kazuya/Music/System\ Sounds/Windows\ XP/Battery\ Low.wav
 	touch $empty
+fi
+
+# Ok, now when it's about to f*cking die.
+if [ $lvl -le 3 ] && [ $discharge == 1 ]
+then
+	dunstify -u critical -r 9997 "Shutting down..." "Your system will now power off to avoid any system damage. Close all programs now."
+	mplayer /home/kazuya/Music/System\ Sounds/Windows\ XP/Exit\ Windows.wav
 fi
