@@ -6,5 +6,4 @@ export PATH="$PATH:/home/kazuya/.cargo/bin"
 echo "Remember..."
 ~/.dotfiles/quotes.sh
 echo
-
 PS1="Kazuya's Comp \w> "

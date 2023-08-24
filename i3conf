@@ -5,7 +5,7 @@
 # The following are all things that run on startup to get the desktop running.
 
 # Login screen (autologin enabled in terminal)
-exec betterlockscreen -l
+# exec betterlockscreen -l
 
 # Startup Sound
 exec_always mplayer $HOME/Music/System\ Sounds/Windows\ XP/Startup.wav
