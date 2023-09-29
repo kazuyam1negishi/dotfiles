@@ -1,0 +1,56 @@
+* {
+    all: unset;
+}
+
+window {
+    background-color: #121212;
+    color: #550000
+}
+
+button {
+    all: unset;
+    background-color: #121212;
+}
+
+.pfp {
+    margin: 21px;
+    background-image: url("/home/kazuya/kazuya.png");
+    background-repeat: no-repeat;
+    background-size: 188px;
+    background-position: bottom;
+    min-height: 188px;
+    min-width: 188px;
+    border-radius: 100%;
+}
+
+.pfptxt {
+    color: #770000;
+    font-size: 24px;
+}
+
+.subpfptxt {
+    font-size: 18px;
+}
+
+.month {
+    color: #770000;
+    padding-top: 15px;
+    font-size: 24px;
+}
+
+.day {
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.hour {
+    padding-left: 4px;
+    margin: 10px;
+    font-size: 28px;
+    color: #770000;
+}
+
+.minute {
+    margin: 10px;
+    font-size: 28px;
+}

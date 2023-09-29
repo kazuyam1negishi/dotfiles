@@ -1,4 +1,4 @@
-R=$((RANDOM%5+1))
+R=$((RANDOM%7+1))
 
 if [ $R == 1 ]
 then
@@ -27,4 +27,19 @@ then
 	echo "git commit -S"
 	echo "git push"
 	echo "git the fuck out"
+fi
+
+if [ $R == 6 ]
+then
+	echo "Remember, lad. It wasn't the easy matches that got you here."
+	echo "It was the bloody impossible ones!"
+	echo "- Demoman TF2"
+fi
+
+if [ $R == 7 ]
+then
+	echo "C makes it easy to shoot yourself in the foot;"
+	echo "C++ makes it harder, but when you do,"
+	echo "it blows your whole leg off."
+	echo "- Bjarne Stroustrup"
 fi

@@ -4,53 +4,39 @@
 # ----- STARTUP -----
 # The following are all things that run on startup to get the desktop running.
 
+# Uncomment this if you want to select your rice on startup.
+# If you uncomment this, you need to comment out:
+# - polybar calls
+# - startup sound
+# - lock screen
+# - wal background setter
+# - i3 gaps
+#exec /home/kazuya/.dotfiles/scripts/./switchrice.sh
+
 # Login screen (autologin enabled in terminal)
 # exec betterlockscreen -l
 
 # Startup Sound
-exec_always mplayer $HOME/Music/System\ Sounds/Windows\ XP/Startup.wav
+exec_always mplayer $HOME/Music/System\ Sounds/Nintendo\ DS/Startup.aif
 
-# Start three polybars
+# Start polybars
 exec polybar leftBar
 exec polybar rightBar
 exec polybar powerBar
-#exec polybar rightBar
 
 # Allows for notifications on desktop.
 exec dunst
 
 # Runs wal to get a color scheme on startup.
-exec wal -i $HOME/Pictures/Wallpapers/geometric_1.jpg -a 50
+exec wal -i $HOME/Pictures/Wallpapers/ds_21.png -a 50
 
-# Wallpaper change command (Swap for whatever key combo you want!)
-bindsym XF86Calculator exec wal -i $HOME/Pictures/Wallpapers/ -a 50
+# ----- BORDER AND GAP SETTINGS -----
+default_border none
+gaps inner 20
+gaps top 60
 
-# i3 mod key
-set $mod Mod4
-
-# Font for i3 window titles, just in case.
-font pango:NintendoDSBIOS 24
-
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
-# Audio controls, using amixer.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id $HOME/.dotfiles/volumenotif up
-bindsym XF86AudioLowerVolume exec --no-startup-id $HOME/.dotfiles/volumenotif down
-bindsym XF86AudioMute exec --no-startup-id $HOME/.dotfiles/volumenotif mute
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+# ----- CUSTOM KEYBINDS -----
+# Swap these for any keys you want to use!
 
 # start a terminal
 bindsym $mod+Return exec urxvt
@@ -58,14 +44,45 @@ bindsym $mod+Return exec urxvt
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id dmenu_run -nb black -sb darkred
-
 # start rofi
 bindsym $mod+d exec rofi -show run
 
 # start rofi's filebrowser
 bindsym $mod+Shift+d exec rofi -show filebrowser
+
+# Keybinds to reset/restart i3
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# Screenshot keybind
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date).png"
+
+# Wallpaper change command
+bindsym XF86Launch2 exec wal -i ~/Pictures/Wallpapers/ -a 50
+
+# Misc keybind for me
+#bindsym XF86Calculator exec ~/.dotfiles/scripts/./switchrice.sh
+
+# ----- MEDIA KEYBINDS -----
+# The following is used to set custom keybinds for media keys.
+
+# Audio controls
+bindsym XF86AudioRaiseVolume exec $HOME/.dotfiles/scripts/volumenotif up
+bindsym XF86AudioLowerVolume exec $HOME/.dotfiles/scripts/volumenotif down
+bindsym XF86AudioMute exec $HOME/.dotfiles/scripts/volumenotif mute
+
+
+# Brightness controls
+bindsym XF86MonBrightnessUp exec ~/.dotfiles/scripts/brightnotif up
+bindsym XF86MonBrightnessDown exec ~/.dotfiles/scripts/brightnotif down
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# ----- DEFAULT KEYBINDS -----
+# These keybinds are unchanged and are as they would be on a default i3 install.
 
 # change focus using the cursor keys:
 bindsym $mod+Left focus left
@@ -108,26 +125,41 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# ----- MEDIA CONTROLS -----
-# The following is used to set volume and brightness keys.
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
 
-# Brightness controls
-# bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +1%
-# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 1%-
-bindsym XF86MonBrightnessUp exec ~/.dotfiles/brightnotif up
-bindsym XF86MonBrightnessDown exec ~/.dotfiles/brightnotif down
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
 
+        # The above, but with precision
+	# NOTE: These do not work for URxvt
+	# if the window is floating.
+        bindsym $mod+Left resize shrink width 1 px
+        bindsym $mod+Down resize grow height 1 px
+        bindsym $mod+Up resize shrink height 1 px
+        bindsym $mod+Right resize grow width 1 px
 
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
 # ----- WINDOW RULES -----
 # The following settings are used to enable floating for some apps
 # by default and set a border size (e.g: on terminal emu’s).
 
 # window border rules
-for_window [class="URxvt"] border pixel 2
+for_window [class="URxvt"] border pixel 0
 for_window [class="XTerm"] border pixel 2
 for_window [class="Tilda"] border pixel 2
 for_window [class="kitty"] border pixel 2
@@ -135,6 +167,7 @@ for_window [class="Alacritty"] border pixel 2
 for_window [class="feh"] border pixel 2
 
 # floating window rules
+#for_window [class="URxvt"] floating enable
 for_window [class="Desmume"] floating enable
 
 # ----- WORKSPACES -----
@@ -166,7 +199,7 @@ bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
 # setup for external monitor desktop
-# workspace $ws10 output HDMI1 eDP1
+# workspace $ws10 output HDMI-1-1 eDP-1
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -192,39 +225,29 @@ assign [class="steam"] $ws8
 assign [class="Minecraft Launcher"] $ws8
 assign [class="obs"] $ws9
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+# ----- MISC SETTINGS -----
+# Adjust these miscellaneous settings related to i3.
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# i3 mod key
+set $mod Mod4
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+# Font for i3 window titles, just in case.
+font pango:NintendoDSBIOS 24
 
-        # The above, but with precision
-	# NOTE: These do not work for URxvt
-	# if the window is floating.
-        bindsym $mod+Left resize shrink width 1 px
-        bindsym $mod+Down resize grow height 1 px
-        bindsym $mod+Up resize shrink height 1 px
-        bindsym $mod+Right resize grow width 1 px
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
 
-bindsym $mod+r mode "resize"
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
 
 set_from_resource $bg-color i3wm.color1 #DD0000
 
@@ -234,16 +257,3 @@ client.focused		$bg-color		$bg-color		$text-color		$bg-color
 client.unfocused	$bg-color		$bg-color		$inactive-text-color 	$bg-color
 client.focused_inactive	$bg-color		$bg-color		$inactive-text-color	$bg-color
 client.urgent		$bg-color		$bg-color		$urgent-text-color	$urgent-bg-color
-
-# border settings, top accounts for polybars
-default_border none
-
-# if using three polybars with window gaps, use these.
-gaps top 60
-gaps inner 20
-
-# if using full polybar with no gaps, use these.
-# gaps top 48
-
-# screenshot bind
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date)"

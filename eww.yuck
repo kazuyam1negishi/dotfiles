@@ -1,0 +1,51 @@
+(defwidget profile []
+(box :orientation "v" :space-evenly "false" :class "profile"
+    (box :orientation "h" :space-evenly "false" :class "pfp")
+    (box :orientation "v" :space-evenly "false"
+	(box :class "pfptxt" :valign "center" "Kazuya Minegishi")
+	(box :class "subpfptxt" :halign "center" "Let's Survive_"))))
+
+(defwindow profile
+    :geometry (geometry
+	:x "20px"
+	:y "20px"
+	:width "230px"
+	:height "300px")
+    :windowtype "toolbar"
+    :wm-ignore false
+  (profile))
+
+(defpoll month :interval "6h" "date \"+%b\"")
+(defpoll day :interval "6h" "date \"+%d\"")
+(defpoll hour :interval "10s" "date \"+%H\"")
+(defpoll minute :interval "10s" "date \"+%M\"")
+
+(defwidget date []
+(box :orientation "v" :space-evenly "false"
+    (box :class "month" {month})
+    (box :class "day" {day})))
+
+(defwidget time []
+(box :orientation "h" :space-evenly "false"
+    (box :class "hour" :anchor "left" {hour})
+    (box :class "minute" :anchor "right" {minute})))
+
+(defwindow date
+    :geometry (geometry
+	:x "20px"
+	:y "340px"
+	:width "105px"
+	:height "105px")
+    :windowtype "toolbar"
+    :wm-ignore false
+  (date))
+
+(defwindow time
+    :geometry (geometry
+	:x "145px"
+	:y "340px"
+	:width "105px"
+	:height "105px")
+    :windowtype "toolbar"
+    :wm-ignore false
+  (time))

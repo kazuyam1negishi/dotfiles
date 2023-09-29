@@ -2,6 +2,10 @@
 
 send_msg(){
 	vol=$(pulsemixer --get-volume | cut -c 1-3)
+	if [ $vol -lt 10 ]
+	then
+		vol=$(pulsemixer --get-volume | cut -c 1)
+	fi
 	if [ $vol -lt 100 ]
 	then
 		vol=$(pulsemixer --get-volume | cut -c 1-2)
@@ -12,6 +16,10 @@ send_msg(){
 case $1 in
 up)
 	pulsemixer --change-volume +5
+	if [ $(pulsemixer --get-volume | cut -c 1-3) -ge 100 ]
+	then
+		pulsemixer --set-volume 100
+	fi
 	send_msg
 	;;
 down)
