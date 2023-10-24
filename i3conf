@@ -11,29 +11,35 @@
 # - lock screen
 # - wal background setter
 # - i3 gaps
-#exec /home/kazuya/.dotfiles/scripts/./switchrice.sh
+#exec $HOME/.dotfiles/scripts/./switchrice.sh
 
 # Login screen (autologin enabled in terminal)
 # exec betterlockscreen -l
 
 # Startup Sound
-exec_always mplayer $HOME/Music/System\ Sounds/Nintendo\ DS/Startup.aif
+exec_always mplayer $HOME/Music/SFX/nintendoDS/Startup.aif
+#exec_always mplayer $HOME/Music/SFX/windowsXP/Startup.wav
+#exec_always mplayer $HOME/Music/SFX/mac_T2_start.wav
 
 # Start polybars
-exec polybar leftBar
-exec polybar rightBar
-exec polybar powerBar
+#exec polybar leftBar
+#exec polybar rightBar
+#exec polybar powerBar
+
+# Start polybars
+exec polybar fullBar
 
 # Allows for notifications on desktop.
 exec dunst
 
 # Runs wal to get a color scheme on startup.
-exec wal -i $HOME/Pictures/Wallpapers/ds_21.png -a 50
+exec wal -i $HOME/Pictures/Wallpapers/ds_17.jpg -a 50
 
 # ----- BORDER AND GAP SETTINGS -----
 default_border none
 gaps inner 20
-gaps top 60
+#gaps top 60
+gaps bottom 48
 
 # ----- CUSTOM KEYBINDS -----
 # Swap these for any keys you want to use!
@@ -58,10 +64,10 @@ bindsym $mod+Shift+r restart
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date).png"
 
 # Wallpaper change command
-bindsym XF86Launch2 exec wal -i ~/Pictures/Wallpapers/ -a 50
+bindsym XF86Launch2 exec wal -i $HOME/Pictures/Wallpapers/ -a 50
 
 # Misc keybind for me
-#bindsym XF86Calculator exec ~/.dotfiles/scripts/./switchrice.sh
+bindsym XF86Calculator exec $HOME/.dotfiles/scripts/./switchrice.sh
 
 # ----- MEDIA KEYBINDS -----
 # The following is used to set custom keybinds for media keys.
@@ -71,10 +77,9 @@ bindsym XF86AudioRaiseVolume exec $HOME/.dotfiles/scripts/volumenotif up
 bindsym XF86AudioLowerVolume exec $HOME/.dotfiles/scripts/volumenotif down
 bindsym XF86AudioMute exec $HOME/.dotfiles/scripts/volumenotif mute
 
-
 # Brightness controls
-bindsym XF86MonBrightnessUp exec ~/.dotfiles/scripts/brightnotif up
-bindsym XF86MonBrightnessDown exec ~/.dotfiles/scripts/brightnotif down
+bindsym XF86MonBrightnessUp exec $HOME/.dotfiles/scripts/brightnotif up
+bindsym XF86MonBrightnessDown exec $HOME/.dotfiles/scripts/brightnotif down
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -169,6 +174,7 @@ for_window [class="feh"] border pixel 2
 # floating window rules
 #for_window [class="URxvt"] floating enable
 for_window [class="Desmume"] floating enable
+#for_window [class="."] floating enable
 
 # ----- WORKSPACES -----
 # The following settings are used to assign apps to workspaces,
@@ -249,11 +255,11 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
-set_from_resource $bg-color i3wm.color1 #DD0000
-
 # Window Colors
 #			border			background		text			indicator
 client.focused		$bg-color		$bg-color		$text-color		$bg-color
 client.unfocused	$bg-color		$bg-color		$inactive-text-color 	$bg-color
 client.focused_inactive	$bg-color		$bg-color		$inactive-text-color	$bg-color
 client.urgent		$bg-color		$bg-color		$urgent-text-color	$urgent-bg-color
+
+set_from_resource $bg-color i3wm.color1 #DD0000

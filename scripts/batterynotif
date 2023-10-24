@@ -30,7 +30,8 @@ fi
 if [ $lvl -ge 99 ] && [ $discharge == 0 ] && [ ! -f $full ]
 then
 	dunstify -u low -r 9997 "Battery Full!" "Battery fully charged" -t 5000 -i /home/kazuya/Pictures/FontAwesomeIcons/battery.png
-	mplayer /home/kazuya/Music/System\ Sounds/Nintendo\ DS/Nintendo\ WFC/WFC\ Success.wav
+	mplayer $HOME/Music/SFX/nintendoDS/Nintendo\ WFC/WFC\ Success.wav
+	# mplayer $HOME/Music/SFX/windowsXP/Print\ Complete.wav
 	touch $full
 fi
 
@@ -38,7 +39,8 @@ fi
 if [ $lvl -le 5 ] && [ $discharge == 1 ] && [ -f $empty] && [ ! -f $veryempty ]
 then
 	dunstify -u critical -r 9997 "Battery Very Low" "Charge your device NOW." -i /home/kazuya/Pictures/FontAwesomeIcons/battery-empty.png
-	mplayer /home/kazuya/Music/System\ Sounds/Nintendo\ DS/Nintendo\ WFC/WFC\ Error.wav
+	mplayer $HOME/Music/System\ Sounds/Nintendo\ DS/Nintendo\ WFC/WFC\ Error.wav
+	# mplayer $HOME/Music/SFX/windowsXP/Battery\ Critical.wav
 	# Added to prevent "Battery Low" alert after "Very Low" alert.
 	touch $veryempty
 fi
@@ -47,7 +49,8 @@ fi
 if [ $lvl -le 15 ] && [ $discharge == 1 ] && [ ! -f $empty ] && [ ! -f $veryempty ]
 then
 	dunstify -u normal -r 9997 "Battery Low" "Charge your device soon." -t 5000 -i /home/kazuya/Pictures/FontAwesomeIcons/battery-empty.png
-	mplayer /home/kazuya/Music/System\ Sounds/Nintendo\ DS/Nintendo\ WFC/WFC\ Error.wav
+	mplayer $HOME/Music/SFX/nintendoDS/Nintendo\ WFC/WFC\ Error.wav
+	# mplayer $HOME/Music/SFX/windowsXP/Battery\ Low.wav
 	touch $empty
 fi
 
@@ -55,5 +58,6 @@ fi
 if [ $lvl -le 3 ] && [ $discharge == 1 ]
 then
 	dunstify -u critical -r 9997 "Shutting down..." "Your system will now power off to avoid any system damage. Close all programs now."
-	mplayer /home/kazuya/Music/System\ Sounds/Nintendo\ DS/Menu\ Open.aif
+	# mplayer $HOME/Music/SFX/windowsXP/Exit\ Windows.wav
+	mplayer $HOME/Music/SFX/nintendoDS/Menu\ Open.aif
 fi
