@@ -2,7 +2,7 @@
 
 send_msg(){
 	bright=$(brightnessctl | grep -P -o '[0-9]+(?=%)')
-	dunstify -u low -r 9999 "Brightness : ${bright}%" -t 5000 -i /home/kazuya/Pictures/FontAwesomeIcons/light.png
+	dunstify -u low -r 9999 "Brightness : ${bright}%" -t 5000 -i light
 }
 
 case $1 in

@@ -2,7 +2,7 @@
 
 send_msg(){
 	vol=$(pulsemixer --get-volume | awk '{print $1;}')
-	dunstify -u low -r 9998 "Volume : $vol%" -t 5000 -i /home/kazuya/Pictures/FontAwesomeIcons/volume.png
+	dunstify -u low -r 9998 "Volume : $vol%" -t 5000 -i volume
 }
 
 case $1 in

@@ -29,18 +29,16 @@ fi
 # Alerts when fully charged...
 if [ $lvl -ge 99 ] && [ $discharge == 0 ] && [ ! -f $full ]
 then
-	dunstify -u low -r 9997 "Battery Full!" "Battery fully charged" -t 5000 -i /home/kazuya/Pictures/FontAwesomeIcons/battery.png
-	mplayer $HOME/Music/SFX/nintendoDS/Nintendo\ WFC/WFC\ Success.wav
-	# mplayer $HOME/Music/SFX/windowsXP/Print\ Complete.wav
+	dunstify -u low -r 9997 "Battery Full!" "Battery fully charged" -t 5000 -i battery
+	mplayer $HOME/.dotfiles/sources/batteryfull.wav
 	touch $full
 fi
 
 # Very low...
-if [ $lvl -le 5 ] && [ $discharge == 1 ] && [ -f $empty] && [ ! -f $veryempty ]
+if [ $lvl -le 5 ] && [ $discharge == 1 ] && [ ! -f $veryempty ]
 then
-	dunstify -u critical -r 9997 "Battery Very Low" "Charge your device NOW." -i /home/kazuya/Pictures/FontAwesomeIcons/battery-empty.png
-	mplayer $HOME/Music/System\ Sounds/Nintendo\ DS/Nintendo\ WFC/WFC\ Error.wav
-	# mplayer $HOME/Music/SFX/windowsXP/Battery\ Critical.wav
+	dunstify -u critical -r 9997 "Battery Very Low" "Charge your device NOW." -i battery-empty
+	mplayer $HOME/.dotfiles/sources/batterylow.wav
 	# Added to prevent "Battery Low" alert after "Very Low" alert.
 	touch $veryempty
 fi
@@ -48,16 +46,14 @@ fi
 # Or just low.
 if [ $lvl -le 15 ] && [ $discharge == 1 ] && [ ! -f $empty ] && [ ! -f $veryempty ]
 then
-	dunstify -u normal -r 9997 "Battery Low" "Charge your device soon." -t 5000 -i /home/kazuya/Pictures/FontAwesomeIcons/battery-empty.png
-	mplayer $HOME/Music/SFX/nintendoDS/Nintendo\ WFC/WFC\ Error.wav
-	# mplayer $HOME/Music/SFX/windowsXP/Battery\ Low.wav
+	dunstify -u normal -r 9997 "Battery Low" "Charge your device soon." -t 5000 -i battery-empty
+	mplayer $HOME/.dotfiles/sources/batterylow.wav
 	touch $empty
 fi
 
 # Ok, now when it's about to f*cking die.
 if [ $lvl -le 3 ] && [ $discharge == 1 ]
 then
-	dunstify -u critical -r 9997 "Shutting down..." "Your system will now power off to avoid any system damage. Close all programs now."
-	# mplayer $HOME/Music/SFX/windowsXP/Exit\ Windows.wav
-	mplayer $HOME/Music/SFX/nintendoDS/Menu\ Open.aif
+	dunstify -u critical -r 9997 "Shutting down..." "Your system will now power off to avoid any system damage. Close all programs now." -i alert
+	mplayer $HOME/.dotfiles/sources/shutdown.wav
 fi

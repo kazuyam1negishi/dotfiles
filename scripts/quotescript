@@ -1,0 +1,45 @@
+R=$((RANDOM%7+1))
+
+if [ $R == 1 ]
+then
+	echo "Life is too short to remove your USB device safely."
+fi
+
+if [ $R == 2 ]
+then
+	echo "Be yourself; everyone else is already taken."
+fi
+
+if [ $R == 3 ]
+then
+	echo "Believe you can, and you're halfway there."
+fi
+
+if [ $R == 4 ]
+then
+	echo "If you get tired, learn to rest, not to quit."
+fi
+
+if [ $R == 5 ]
+then
+	echo "In case of fire:"
+	echo "git add ."
+	echo "git commit -S"
+	echo "git push"
+	echo "git the fuck out"
+fi
+
+if [ $R == 6 ]
+then
+	echo "Remember, lad. It wasn't the easy matches that got you here."
+	echo "It was the bloody impossible ones!"
+	echo "- Demoman TF2"
+fi
+
+if [ $R == 7 ]
+then
+	echo "C makes it easy to shoot yourself in the foot;"
+	echo "C++ makes it harder, but when you do,"
+	echo "it blows your whole leg off."
+	echo "- Bjarne Stroustrup"
+fi

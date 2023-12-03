@@ -1,7 +1,5 @@
-# Created by `pipx` on 2023-03-03 19:48:39
-
 # neofetch
-# ~/.dotfiles/scripts/quotes.sh
-# echo
-# PS1="Kazuya's Comp \w> "
+# ~/.dotfiles/scripts/quotescript
+
+# This is how your prompt will look in URxvt.
 PS1="\w > "
