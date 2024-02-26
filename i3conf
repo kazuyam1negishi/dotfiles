@@ -5,7 +5,7 @@
 # The following are all things that run on startup to get the desktop running.
 
 # start polybar
-exec polybar bar
+exec polybar myBar
 
 # logon sound
 exec_always mplayer $HOME/.dotfiles/sources/logon.wav
