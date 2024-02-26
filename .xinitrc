@@ -1,7 +1,6 @@
 xrdb .Xresources
 
-
-picom --config $HOME/.config/picom/picom.conf &
-# xrandr --output HDMI-1-1 --auto --left-of eDP-1
+compfy --config ~/.dotfiles/picom.conf --animation-for-open-window slide-up --animation-for-unmap-window slide-down &
 exec i3
+# exec startxfce4
 # exec /home/kazuya/wmaker/bin/wmaker

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+export XAUTHORITY=/home/kazuya/.Xauthority
+export DISPLAY=:0
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+
+USB_STATUS=$1
+
+if [ $USB_STATUS -eq 1 ]
+then
+	dunstify -u low -r 9995 "USB device connected" -t 5000 -i usb
+	/usr/bin/sudo -u kazuya /usr/bin/paplay --server=/run/user/1000/pulse/native /home/kazuya/.dotfiles/sources/insert.wav > /dev/null 2>&1
+elif [ $USB_STATUS -eq 0 ]
+then
+	dunstify -u low -r 9995 "USB device disconnected" -t 5000 -i usb
+	/usr/bin/sudo -u kazuya /usr/bin/paplay --server=/run/user/1000/pulse/native /home/kazuya/.dotfiles/sources/remove.wav > /dev/null 2>&1
+fi

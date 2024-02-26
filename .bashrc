@@ -1,5 +1,3 @@
-# neofetch
 # ~/.dotfiles/scripts/quotescript
-
-# This is how your prompt will look in URxvt.
-PS1="\w > "
+# This is how your prompt will look inside i3.
+PS1="Kazuya's COMP \w > "

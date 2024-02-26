@@ -38,7 +38,7 @@ fi
 if [ $lvl -le 5 ] && [ $discharge == 1 ] && [ ! -f $veryempty ]
 then
 	dunstify -u critical -r 9997 "Battery Very Low" "Charge your device NOW." -i battery-empty
-	mplayer $HOME/.dotfiles/sources/batterylow.wav
+	mplayer $HOME/.dotfiles/sources/batterycritical.wav
 	# Added to prevent "Battery Low" alert after "Very Low" alert.
 	touch $veryempty
 fi

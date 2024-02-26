@@ -5,5 +5,6 @@ export PATH="$PATH:$HOME/Documents/Apps"
 export PATH="$PATH:/opt"
 
 # Start X11 as soon as system starts.
-mplayer $HOME/.dotfiles/sources/startup.wav
+neofetch --ascii & disown
+mplayer $HOME/.dotfiles/sources/startup.wav &> /dev/null
 startx

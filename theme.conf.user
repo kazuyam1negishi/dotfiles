@@ -1,0 +1,10 @@
+[General]
+background=/home/kazuya/.dotfiles/sources/wallpapers/ds_10.png
+
+ScreenWidth=1920
+ScreenHeight=1080
+
+HeaderText=Welcome
+
+HourFormat="hh:mm A"
+DateFormat="MMMM d, yyyy"

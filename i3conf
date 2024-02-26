@@ -4,35 +4,23 @@
 # ----- STARTUP -----
 # The following are all things that run on startup to get the desktop running.
 
-# Login screen (autologin enabled in terminal)
-# exec betterlockscreen -l
+# start polybar
+exec polybar bar
 
-# Startup Sound
+# logon sound
 exec_always mplayer $HOME/.dotfiles/sources/logon.wav
 
-# Start polybars
-exec polybar leftBar
-exec polybar rightBar
-exec polybar powerBar
-
-# Start polybars
-# exec polybar fullBar
-
-# Allows for notifications on desktop.
+# allows for notifications on desktop.
 exec dunst --config ~/.dotfiles/dunstrc
 
-# Runs wal to get a color scheme on startup.
-# exec wal -i $HOME/Pictures/More\ Unused\ Wallpapers/wXP_1.jpg -a 50
-
-# Alternatively, since the color scheme on URxvt and polybar is
-# already set to match the Devil Survivor color scheme,
-# you can use this.
-exec nitrogen --set-zoom-fill $HOME/.dotfiles/sources/bg.png
+# set wallpaper
+# exec nitrogen --set-zoom-fill --random $HOME/.dotfiles/sources/wallpapers/
+exec nitrogen --set-zoom-fill $HOME/.dotfiles/sources/wallpapers/ds_24.png
 
 # ----- BORDER AND GAP SETTINGS -----
 default_border none
 gaps inner 20
-gaps top 60
+#gaps top 60
 #gaps bottom 48
 
 # ----- CUSTOM KEYBINDS -----
@@ -58,10 +46,10 @@ bindsym $mod+Shift+r restart
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date).png"
 
 # Wallpaper change command
-#bindsym XF86Launch2 exec wal -i $HOME/Pictures/Wallpapers/ -a 50
+bindsym XF86Launch2 exec nitrogen --set-zoom-fill --random $HOME/.dotfiles/sources/wallpapers
 
 # Misc keybind for me
-#bindsym XF86Calculator exec
+#bindsym XF86Calculator exec wal -i -a 50
 
 # ----- MEDIA KEYBINDS -----
 # The following is used to set custom keybinds for media keys.

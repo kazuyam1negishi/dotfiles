@@ -19,3 +19,4 @@ ln -s ~/.dotfiles/betterlockscreenrc $HOME/.config/betterlockscreenrc
 ln -s ~/.dotfiles/eww.yuck $HOME/.config/eww/eww.yuck
 ln -s ~/.dotfiles/eww.scss $HOME/.config/eww/eww.scss
 ln -s ~/.dotfiles/.vimrc $HOME/.vimrc
+sudo ln -s ~/.dotfiles/sddm.conf /etc/sddm.conf.d/sddm.conf
