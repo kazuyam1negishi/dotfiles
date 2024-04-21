@@ -1,4 +1,4 @@
-R=$((RANDOM%7+1))
+R=$((RANDOM%8+1))
 
 if [ $R == 1 ]
 then
@@ -42,4 +42,10 @@ then
 	echo "C++ makes it harder, but when you do,"
 	echo "it blows your whole leg off."
 	echo "- Bjarne Stroustrup"
+fi
+
+if [ $R == 8 ]
+then
+	echo "You're doin' good, lad!"
+	echo "- Demoman TF2"
 fi

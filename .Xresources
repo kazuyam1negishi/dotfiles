@@ -1,9 +1,47 @@
+! special
+*.foreground:   #b4b4b4
+*.background:   #1b0000
+*.cursorColor:  #b4b4b4
+
+! black
+*.color0:       #000000
+*.color8:       #181818
+
+! red
+*.color1:       #970000
+*.color9:       #970000
+
+! green
+*.color2:       #dd3c4a
+*.color10:      #dd3c4a
+
+! yellow
+*.color3:       #f78975
+*.color11:      #f78975
+
+! blue
+*.color4:       #ba4f87
+*.color12:      #ba4f87
+
+! magenta
+*.color5:       #bf4d4d
+*.color13:      #bf4d4d
+
+! cyan
+*.color6:       #c53909
+*.color14:      #c53909
+
+! white
+*.color7:       #9c2509
+*.color15:      #9c2509
+
 ; URxvt.font: xft:(NDS) Devil Survivor In\\-Game Font:size=7
-URxvt.font: xft:NintendoDSBIOS:size=12
-URxvt.depth: 32
-; URxvt*background: black
-URxvt*background: rgba:0000/0000/0200/c800
-URxvt*foreground: red
-URxvt.internalBorder: 12
+*.font: xft:NintendoDSBIOS:size=12
+
+URxvt*depth: 32
+URxvt*background: rgba:2222/0000/0000/c800
+; URxvt*foreground: red
+
+*.internalBorder: 12
 URxvt.scrollBar: false
 URxvt.geometry: 75x36

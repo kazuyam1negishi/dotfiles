@@ -9,7 +9,7 @@ exec polybar myBar
 exec picom --config ~/.dotfiles/picom.conf
 
 # logon sound
-# exec_always mplayer $HOME/.dotfiles/sources/logon.wav
+exec_always mplayer $HOME/.dotfiles/sources/logon.wav
 
 # allows for notifications on desktop.
 exec dunst --config ~/.dotfiles/dunstrc

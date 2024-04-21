@@ -1,6 +1,6 @@
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+xrandr --dpi 96
 xrdb .Xresources
-
-compfy --config ~/.dotfiles/picom.conf --animation-for-open-window slide-up --animation-for-unmap-window slide-down &
-exec i3
-# exec startxfce4
-# exec /home/kazuya/wmaker/bin/wmaker
+# exec i3
+exec startxfce4
