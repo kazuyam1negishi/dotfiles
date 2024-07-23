@@ -6,17 +6,21 @@
 
 # start polybar
 exec polybar myBar
+#exec polybar leftBar
+#exec polybar powerBar
+#exec polybar rightBar
+
+# start compositor
 exec picom --config ~/.dotfiles/picom.conf
 
 # logon sound
-# exec_always mplayer $HOME/.dotfiles/sources/logon.wav
+exec_always mplayer $HOME/.dotfiles/sources/logon.wav
 
 # allows for notifications on desktop.
 exec dunst --config ~/.dotfiles/dunstrc
 
 # set wallpaper
-# exec nitrogen --set-zoom-fill --random $HOME/.dotfiles/sources/wallpapers/
-exec nitrogen --set-zoom-fill $HOME/.dotfiles/sources/wallpapers/ds_24.png
+exec --no-startup-id nitrogen --restore
 
 # ----- BORDER AND GAP SETTINGS -----
 default_border none
@@ -51,10 +55,9 @@ bindsym $mod+Shift+r restart
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date).png"
 
 # Wallpaper change command
-# bindsym XF86Launch2 exec nitrogen --set-zoom-fill --random $HOME/.dotfiles/sources/wallpapers
-# bindsym XF86Launch2 exec wal -i ~/.dotfiles/sources/wallpapers -a 50
-#bindsym XF86Launch2 exec wal -i ~/Pictures/Wallpapers -a 50
-#bindsym XF86Calculator exec hp-scan -m color -d hpaio:/net/OfficeJet_3830_series?ip=192.168.0.12
+#bindsym XF86Launch2 exec nitrogen --set-zoom-fill --random $HOME/.dotfiles/sources/wallpapers
+#bindsym XF86Launch2 exec wal -i ~/.dotfiles/sources/wallpapers -a 50
+bindsym XF86AudioMedia exec wal -i ~/Pictures/Wallpapers -a 50
 
 # ----- MEDIA KEYBINDS -----
 # The following is used to set custom keybinds for media keys.

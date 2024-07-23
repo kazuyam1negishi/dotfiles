@@ -6,5 +6,5 @@ export PATH="$PATH:/opt"
 
 # Start X11 as soon as system starts.
 # neofetch --ascii_distro Windows7 & disown
-mplayer $HOME/.dotfiles/sources/startup.wav &> /dev/null & disown
+mplayer $HOME/.dotfiles/sources/startup.wav &> /dev/null
 startx

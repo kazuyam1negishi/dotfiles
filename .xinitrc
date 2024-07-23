@@ -1,6 +1,6 @@
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
-xrandr --dpi 96
+# xrdb
 xrdb .Xresources
-# exec i3
-exec startxfce4
+# Set keymap to Latin American
+setxkbmap -layout latam
+# Start i3
+exec i3
