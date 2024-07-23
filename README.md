@@ -1,10 +1,16 @@
 # Arch Dotfiles
 Welcome! This is a backup of my dotfiles, which you can also use to get a little jumpstart in ricing i3!
 
-# Important Notes
-Do NOT expect these dotfiles to work the first time. They may require some slight tweaks to work on your system.
-For example, the polybars have their offsets set for a 1920x1080 monitor.
-Also, since the wallpapers/ folder contains works by other people, I am unfortunately unable to share it.
+# System Info
+- Framework Laptop 13 (13th Gen Intel i5)
+- Intel Core i5-1340P
+- 32GB DDR4-3200
+- 1TB WD Black SN770
+- Spanish (Latin American) Keyboard
+
+# Notice
+Please do not expect the dotfiles to work first time on your system.
+Because everyone has a slightly different computer, tweaks are needed to get these dotfiles to work on your system.
 
 # How to use
 This is meant to be run after the system and apps are installed.
