@@ -35,12 +35,12 @@
 *.color7:       #9c2509
 *.color15:      #9c2509
 
-; URxvt.font: xft:(NDS) Devil Survivor In\\-Game Font:size=7
+; *.font: xft:(NDS) Devil Survivor In\\-Game Font:size=7
 *.font: xft:NintendoDSBIOS:size=12
+; *.font:xft:HPSimplified:size=12
 
 URxvt*depth: 32
-URxvt*background: rgba:2222/0000/0000/c800
-; URxvt*foreground: red
+URxvt*background: rgba:0000/0000/0000/c800
 
 *.internalBorder: 12
 URxvt.scrollBar: false

@@ -37,7 +37,7 @@ fi
 # Very low...
 if [ $lvl -le 5 ] && [ $discharge == 1 ] && [ ! -f $veryempty ]
 then
-	dunstify -u critical -r 9997 "Battery Very Low" "Charge your device NOW." -i battery-empty
+	dunstify -u critical -r 9997 "Battery Very Low" "Charge your device now." -i battery-empty
 	mplayer $HOME/.dotfiles/sources/batterycritical.wav
 	# Added to prevent "Battery Low" alert after "Very Low" alert.
 	touch $veryempty
@@ -54,6 +54,6 @@ fi
 # Ok, now when it's about to f*cking die.
 if [ $lvl -le 3 ] && [ $discharge == 1 ]
 then
-	dunstify -u critical -r 9997 "Shutting down..." "Your system will now power off to avoid any system damage. Close all programs now." -i alert
+	dunstify -u critical -r 9997 "Powering Off" "Your system may shut down abruptly, causing system damage. Please save your work and/or power off now." -i alert
 	mplayer $HOME/.dotfiles/sources/shutdown.wav
 fi

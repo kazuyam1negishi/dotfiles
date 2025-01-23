@@ -1,5 +1,6 @@
 configuration {
-	modes: "run,filebrowser";
+	// modes: "run,filebrowser";
+	modes: "run";
 	xoffset: 0;
 	yoffset: -100;
 }

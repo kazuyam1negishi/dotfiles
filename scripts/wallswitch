@@ -1,0 +1,9 @@
+#! /bin/bash
+
+choice=$(printf "Devil Survivor\nTeam Fortress 2" | rofi -dmenu -i)
+
+case "$choice" in
+	"Devil Survivor") wal -i ~/Pictures/Wallpapers/Devil\ Survivor -a 50 ;;
+	"Team Fortress 2") wal -i ~/Pictures/Wallpapers/Team\ Fortress\ 2 -a 50 ;;
+	*) exit 1 ;;
+esac

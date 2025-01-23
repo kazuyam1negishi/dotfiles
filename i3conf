@@ -6,15 +6,20 @@
 
 # start polybar
 exec polybar myBar
+
+# use these if you want three bars for each bit of info
+# or if you're using the COMP wallpaper provided.
+# NOTE: see the polybar config file for the new offsets.
+# these are verified to work on the framework laptop 13.
 #exec polybar leftBar
 #exec polybar powerBar
-#exec polybar rightBar
+#xexec polybar rightBar
 
 # start compositor
 exec picom --config ~/.dotfiles/picom.conf
 
 # logon sound
-exec_always mplayer $HOME/.dotfiles/sources/logon.wav
+#exec_always mplayer $HOME/.dotfiles/sources/logon.wav
 
 # allows for notifications on desktop.
 exec dunst --config ~/.dotfiles/dunstrc
@@ -24,13 +29,17 @@ exec --no-startup-id nitrogen --restore
 
 # ----- BORDER AND GAP SETTINGS -----
 default_border none
+#gaps outer 200
 gaps inner 20
 # top 60 is for split bars
 # bottom 48 is for full bar
 # if you don't wanna disable
 # override redirect in polybar config.
 #gaps top 60
+#gaps top 40
 #gaps bottom 48
+#gaps bottom 48
+#gaps bottom 60
 
 # ----- CUSTOM KEYBINDS -----
 # Swap these for any keys you want to use!
@@ -45,7 +54,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show run
 
 # start rofi's filebrowser
-bindsym $mod+Shift+d exec rofi -show filebrowser
+#bindsym $mod+Shift+d exec rofi -show filebrowser
 
 # Keybinds to reset/restart i3
 bindsym $mod+Shift+c reload
@@ -57,7 +66,8 @@ bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date
 # Wallpaper change command
 #bindsym XF86Launch2 exec nitrogen --set-zoom-fill --random $HOME/.dotfiles/sources/wallpapers
 #bindsym XF86Launch2 exec wal -i ~/.dotfiles/sources/wallpapers -a 50
-bindsym XF86AudioMedia exec wal -i ~/Pictures/Wallpapers -a 50
+#bindsym XF86AudioMedia exec $HOME/.dotfiles/scripts/wallswitch
+#bindsym XF86AudioMedia exec wal -i $HOME/Pictures/Wallpapers -a 50
 
 # ----- MEDIA KEYBINDS -----
 # The following is used to set custom keybinds for media keys.
@@ -181,7 +191,7 @@ set $ws6 ""
 set $ws7 ""
 set $ws8 ""
 set $ws9 ""
-set $ws10 ""
+set $ws10 ""
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -211,16 +221,16 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # apps assigned to separate workspaces
-assign [class="Code"] $ws2
-assign [class="Google-chrome"] $ws3
-assign [class="Pcmanfm"] $ws4
-assign [class="vlc"] $ws5
-assign [class="discord"] $ws6
-assign [class="libreoffice-startcenter"] $ws7
-assign [class="Desmume"] $ws8
-assign [class="steam"] $ws8
-assign [class="Minecraft Launcher"] $ws8
-assign [class="obs"] $ws9
+#assign [class="Code"] $ws2
+#assign [class="Google-chrome"] $ws3
+#assign [class="Pcmanfm"] $ws4
+#assign [class="vlc"] $ws5
+#assign [class="discord"] $ws6
+#assign [class="libreoffice-startcenter"] $ws7
+#assign [class="Desmume"] $ws8
+#assign [class="steam"] $ws8
+#assign [class="Minecraft Launcher"] $ws8
+#assign [class="obs"] $ws9
 
 # ----- MISC SETTINGS -----
 # Adjust these miscellaneous settings related to i3.
@@ -233,11 +243,11 @@ font pango:NintendoDSBIOS 24
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
+#exec --no-startup-id dex --autostart --environment i3
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -248,9 +258,9 @@ tiling_drag modifier titlebar
 
 # Window Colors
 #			border			background		text			indicator
-client.focused		$bg-color		$bg-color		$text-color		$bg-color
-client.unfocused	$bg-color		$bg-color		$inactive-text-color 	$bg-color
-client.focused_inactive	$bg-color		$bg-color		$inactive-text-color	$bg-color
-client.urgent		$bg-color		$bg-color		$urgent-text-color	$urgent-bg-color
+#client.focused		$bg-color		$bg-color		$text-color		$bg-color
+#client.unfocused	$bg-color		$bg-color		$inactive-text-color 	$bg-color
+#client.focused_inactive	$bg-color		$bg-color		$inactive-text-color	$bg-color
+#client.urgent		$bg-color		$bg-color		$urgent-text-color	$urgent-bg-color
 
 set_from_resource $bg-color i3wm.color1 #DD0000
